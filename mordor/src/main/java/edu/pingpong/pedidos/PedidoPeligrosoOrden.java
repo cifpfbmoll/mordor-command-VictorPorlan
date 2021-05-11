@@ -1,23 +1,30 @@
 package edu.pingpong.pedidos;
-import java.util.UUID;
 
 import edu.pingpong.interfaces.Pedido;
+import edu.pingpong.interfaces.PedidoPeligroso;
 
-public class PedidoInternacional implements Pedido {
+import java.util.UUID;
+
+public class PedidoPeligrosoOrden implements PedidoPeligroso {
     private int peso;
     private String destino;
+    private String instrucciones;
     private final String id;
 
-    public PedidoInternacional(String destino, int peso) {
+    public PedidoPeligrosoOrden(String destino, String instrucciones) {
         this.id = UUID.randomUUID().toString();
-        this.peso = peso;
         this.destino = destino;
+        this.instrucciones = instrucciones;
     }
-
+    @Override
     public int peso() {
         return peso;
     }
-
+    @Override
+    public String instrucciones() {
+        return instrucciones;
+    }
+    @Override
     public String destino() {
         return destino;
     }
